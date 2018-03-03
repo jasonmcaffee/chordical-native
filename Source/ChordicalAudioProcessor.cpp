@@ -1,15 +1,5 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
-#include "PluginProcessor.h"
-#include "PluginEditor.h"
+#include "ChordicalAudioProcessor.h"
+#include "ChordicalAudioProcessorEditor.h"
 
 
 //==============================================================================
