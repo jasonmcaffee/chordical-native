@@ -1,12 +1,3 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
 
 #pragma once
 
@@ -16,12 +7,12 @@
 //==============================================================================
 /**
 */
-class ChordicalnativeprojucerAudioProcessor  : public AudioProcessor
+class ChordicalAudioProcessor  : public AudioProcessor
 {
 public:
     //==============================================================================
-    ChordicalnativeprojucerAudioProcessor();
-    ~ChordicalnativeprojucerAudioProcessor();
+    ChordicalAudioProcessor();
+    ~ChordicalAudioProcessor();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -58,5 +49,5 @@ public:
 
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalnativeprojucerAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessor)
 };

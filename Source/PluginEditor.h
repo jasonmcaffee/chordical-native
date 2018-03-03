@@ -1,12 +1,4 @@
-/*
-  ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
 
 #pragma once
 
@@ -17,11 +9,11 @@
 //==============================================================================
 /**
 */
-class ChordicalnativeprojucerAudioProcessorEditor  : public AudioProcessorEditor
+class ChordicalAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    ChordicalnativeprojucerAudioProcessorEditor (ChordicalnativeprojucerAudioProcessor&);
-    ~ChordicalnativeprojucerAudioProcessorEditor();
+    ChordicalAudioProcessorEditor (ChordicalAudioProcessor&);
+    ~ChordicalAudioProcessorEditor();
 
     //==============================================================================
     void paint (Graphics&) override;
@@ -30,7 +22,7 @@ public:
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    ChordicalnativeprojucerAudioProcessor& processor;
+    ChordicalAudioProcessor& processor;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalnativeprojucerAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessorEditor)
 };
