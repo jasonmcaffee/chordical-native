@@ -2706,7 +2706,7 @@ set_target_properties (VST PROPERTIES
     XCODE_ATTRIBUTE_GCC_DYNAMIC_NO_PIC NO
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
     XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE YES
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-VST.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-VST.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_INSTALL_PATH "$(HOME)/Library/Audio/Plug-Ins/VST/"
     XCODE_ATTRIBUTE_LIBRARY_STYLE Bundle
@@ -2715,7 +2715,7 @@ set_target_properties (VST PROPERTIES
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
     XCODE_ATTRIBUTE_WRAPPER_EXTENSION vst
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-VST.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-VST.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     BUNDLE TRUE
     BUNDLE_EXTENSION vst
@@ -2809,7 +2809,7 @@ set_target_properties (AU PROPERTIES
     XCODE_ATTRIBUTE_GCC_DYNAMIC_NO_PIC NO
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
     XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE YES
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-AU.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-AU.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_INSTALL_PATH "$(HOME)/Library/Audio/Plug-Ins/Components/"
     XCODE_ATTRIBUTE_LIBRARY_STYLE Bundle
@@ -2818,7 +2818,7 @@ set_target_properties (AU PROPERTIES
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
     XCODE_ATTRIBUTE_WRAPPER_EXTENSION component
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-AU.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-AU.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     BUNDLE TRUE
     BUNDLE_EXTENSION component
@@ -2887,13 +2887,13 @@ set_target_properties (STANDALONE_PLUGIN PROPERTIES
     XCODE_ATTRIBUTE_COPY_PHASE_STRIP NO
     XCODE_ATTRIBUTE_GCC_DYNAMIC_NO_PIC NO
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-Standalone_Plugin.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-Standalone_Plugin.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET_ppc 10.4
     XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER com.yourcompany.ChordicalNative
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Debug-Info-Standalone_Plugin.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Debug-Info-Standalone_Plugin.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     MACOSX_BUNDLE TRUE
 )
@@ -3031,7 +3031,7 @@ set_target_properties (VST PROPERTIES
     XCODE_ATTRIBUTE_GCC_SYMBOLS_PRIVATE_EXTERN YES
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
     XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE YES
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-VST.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-VST.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_INSTALL_PATH "$(HOME)/Library/Audio/Plug-Ins/VST/"
     XCODE_ATTRIBUTE_LIBRARY_STYLE Bundle
@@ -3040,7 +3040,7 @@ set_target_properties (VST PROPERTIES
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
     XCODE_ATTRIBUTE_WRAPPER_EXTENSION vst
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-VST.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-VST.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     BUNDLE TRUE
     BUNDLE_EXTENSION vst
@@ -3136,7 +3136,7 @@ set_target_properties (AU PROPERTIES
     XCODE_ATTRIBUTE_GCC_SYMBOLS_PRIVATE_EXTERN YES
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
     XCODE_ATTRIBUTE_GENERATE_PKGINFO_FILE YES
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-AU.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-AU.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_INSTALL_PATH "$(HOME)/Library/Audio/Plug-Ins/Components/"
     XCODE_ATTRIBUTE_LIBRARY_STYLE Bundle
@@ -3145,7 +3145,7 @@ set_target_properties (AU PROPERTIES
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
     XCODE_ATTRIBUTE_WRAPPER_EXTENSION component
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-AU.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-AU.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     BUNDLE TRUE
     BUNDLE_EXTENSION component
@@ -3216,13 +3216,13 @@ set_target_properties (STANDALONE_PLUGIN PROPERTIES
     XCODE_ATTRIBUTE_GCC_GENERATE_DEBUGGING_SYMBOLS NO
     XCODE_ATTRIBUTE_GCC_SYMBOLS_PRIVATE_EXTERN YES
     XCODE_ATTRIBUTE_GCC_VERSION com.apple.compilers.llvm.clang.1_0
-    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-Standalone_Plugin.plist"
+    XCODE_ATTRIBUTE_INFOPLIST_FILE "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-Standalone_Plugin.plist"
     XCODE_ATTRIBUTE_INFOPLIST_PREPROCESS NO
     XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET_ppc 10.4
     XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER com.yourcompany.ChordicalNative
     XCODE_ATTRIBUTE_SDKROOT_ppc macosx10.5
     XCODE_ATTRIBUTE_USE_HEADERMAP NO
-    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Release-Info-Standalone_Plugin.plist"
+    MACOSX_BUNDLE_INFO_PLIST "/Users/jason.mcaffee/Documents/dev/Chordical-Native/Plists/Release-Info-Standalone_Plugin.plist"
     XCODE_ATTRIBUTE_PRODUCT_NAME "Chordical-Native"
     MACOSX_BUNDLE TRUE
 )
