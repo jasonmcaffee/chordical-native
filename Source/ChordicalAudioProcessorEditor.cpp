@@ -9,13 +9,17 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     printf("Starting editor..");
-    addAndMakeVisible (&playButton);
-    playButton.setButtonText ("Play");
-    playButton.addListener (this);
+    setSize (700, 700);
+
+//    playButton.setButtonText ("Play");
+//    playButton.addListener (this);
+//    playButton.setBounds(0, 0, 100, 100);
+//    addAndMakeVisible (&playButton);
 
     midiKeyboard.setVisible(true);
+    midiKeyboard.setBounds(0, 100, 700, 100);
     addAndMakeVisible (midiKeyboard);
-    setSize (700, 700);
+
     repaint();
 
 }
