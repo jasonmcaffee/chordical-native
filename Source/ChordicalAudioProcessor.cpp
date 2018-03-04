@@ -17,7 +17,7 @@ ChordicalAudioProcessor::ChordicalAudioProcessor()
                        )
 #endif
 {
-    printf("ChordicalAudioProcessor constructor called...\n");
+    printf("2 ChordicalAudioProcessor constructor called...\n");
     initialiseSynth();
 }
 
