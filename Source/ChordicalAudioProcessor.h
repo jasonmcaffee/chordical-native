@@ -46,7 +46,15 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    // this is kept up to date with the midi messages that arrive, and the UI component
+    // registers with it so it can represent the incoming messages
+    MidiKeyboardState keyboardState;
 private:
+//    template <typename FloatType>
+//    void process (AudioBuffer<FloatType>& buffer, MidiBuffer& midiMessages, AudioBuffer<FloatType>& delayBuffer);
+
+    Synthesiser synth;
+    void initialiseSynth();
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessor)
 };

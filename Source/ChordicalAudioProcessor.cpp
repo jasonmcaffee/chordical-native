@@ -1,6 +1,8 @@
 #include "ChordicalAudioProcessor.h"
 #include "ChordicalAudioProcessorEditor.h"
-
+#include <stdio.h>
+//#include "Waves/Sine.h"
+#include "Waves/SineWaveSynth.h"
 
 //==============================================================================
 ChordicalAudioProcessor::ChordicalAudioProcessor()
@@ -15,10 +17,23 @@ ChordicalAudioProcessor::ChordicalAudioProcessor()
                        )
 #endif
 {
+    printf("ChordicalAudioProcessor constructor called...\n");
+    initialiseSynth();
 }
 
 ChordicalAudioProcessor::~ChordicalAudioProcessor()
 {
+}
+
+void ChordicalAudioProcessor::initialiseSynth()
+{
+    const int numVoices = 8;
+    // Add some voices...
+    for (int i = numVoices; --i >= 0;)
+        synth.addVoice (new SineWaveVoice());
+
+    // ..and give the synth a sound to play
+    synth.addSound (new SineWaveSound());
 }
 
 //==============================================================================
@@ -88,12 +103,17 @@ void ChordicalAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    printf("ChordicalAudioProcessor prepareToPlay called...\n");
+    keyboardState.reset();
+    synth.setCurrentPlaybackSampleRate (sampleRate);
+    reset();
 }
 
 void ChordicalAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+    keyboardState.reset();
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -122,18 +142,30 @@ bool ChordicalAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts
 
 void ChordicalAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
+    //printf("processBlock called..\n");
 
-    // In case we have more outputs than inputs, this code clears any output
+    ScopedNoDenormals noDenormals;
+    const int numSamples = buffer.getNumSamples();
+
+    // In case we have more outputs than inputs, we'll clear any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+    for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
+        buffer.clear (i, 0, numSamples);
+
+    // Now pass any incoming midi messages to our keyboard state object, and let it
+    // add messages to the buffer if the user is clicking on the on-screen keys
+    keyboardState.processNextMidiBuffer (midiMessages, 0, numSamples, true);
+
+    // and now get our synth to process these midi events and generate its output.
+    synth.renderNextBlock (buffer, midiMessages, 0, numSamples);
+
+    // Apply our delay effect to the new output..
+    //    applyDelay (buffer, delayBuffer);
+    //
+    //    applyGain (buffer, delayBuffer); // apply our gain-change to the outgoing data..
+
+    // Now ask the host for the current time so we can store it to be displayed later...
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
@@ -141,12 +173,12 @@ void ChordicalAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuff
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+    //    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    //    {
+    //        auto* channelData = buffer.getWritePointer (channel);
+    //
+    //        // ..do something to the data...
+    //    }
 }
 
 //==============================================================================
@@ -173,6 +205,7 @@ void ChordicalAudioProcessor::setStateInformation (const void* data, int sizeInB
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
 }
+
 
 //==============================================================================
 // This creates new instances of the plugin..
