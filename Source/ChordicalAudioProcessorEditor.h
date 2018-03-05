@@ -23,6 +23,7 @@ private:
     ChordicalAudioProcessor& processor;
     TextButton playButton;
     MidiKeyboardComponent midiKeyboard;
+    WebBrowserComponent webBrowserComponent;
     void updateCurrentTimeInfoFromHost();
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessorEditor)
 };
