@@ -4,6 +4,16 @@
 #include "Waves/Sine.h"
 #include "BinaryData/UI.c"
 
+String writeTempFile(const unsigned char fileContents[], String fileName){
+    File targetFile (fileName);
+    std::string fileContentsAsStdString(reinterpret_cast<const char*>(fileContents));
+    String fileContentsAsString (fileContentsAsStdString);
+    targetFile.replaceWithText(fileContentsAsString);
+//    printf("fullPath: %s", targetFile.getFullPathName().toRawUTF8());
+    return targetFile.getFullPathName();
+    //Users/jason.mcaffee/Documents/dev/Chordical-Native/cmake-build-debug/Chordical-Native.app/Contents/MacOS/jasontestIndex.html
+}
+
 //==============================================================================
 ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p), midiKeyboard (p.keyboardState, MidiKeyboardComponent::horizontalKeyboard),
@@ -13,6 +23,9 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     // editor's size to whatever you need it to be.
     printf("Starting editor.. ");
     printf("%s", index_html);
+    String fullPathToIndexHtml = writeTempFile(index_html, "./jasontestIndex.html");
+    printf("fullPath: %s", fullPathToIndexHtml.toRawUTF8());
+
     setSize (700, 700);
 
     midiKeyboard.setVisible(true);
@@ -22,10 +35,12 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     webBrowserComponent.setVisible(true);
     webBrowserComponent.setBounds(0, 200, 700, 500);
     addAndMakeVisible(webBrowserComponent);
-    webBrowserComponent.goToURL("file://UI/index.html");
+    webBrowserComponent.goToURL("file://" + fullPathToIndexHtml);
     repaint();
 
 }
+
+
 
 ChordicalAudioProcessorEditor::~ChordicalAudioProcessorEditor()
 {
