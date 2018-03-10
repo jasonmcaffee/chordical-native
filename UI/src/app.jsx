@@ -8,7 +8,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div id="bg">
-        This is app.jx
+        This is app.jx 2
         <Button label="HI" onClick={this.handleButtonClick.bind(this)}/>
       </div>
     )

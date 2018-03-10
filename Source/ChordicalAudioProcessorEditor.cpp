@@ -22,7 +22,7 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     printf("Starting editor.. ");
-    printf("%s", index_html);
+//    printf("%s", index_html);
     String fullPathToIndexHtml = writeTempFile(index_html, "./jasontestIndex.html");
     printf("fullPath: %s", fullPathToIndexHtml.toRawUTF8());
 

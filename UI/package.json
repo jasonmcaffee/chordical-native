@@ -5,7 +5,7 @@
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "build-dist": "npm run build && npm run dist",
+    "build-dist": "npm run build && npm run dist && make -C /Users/jason.mcaffee/Documents/dev/chordical-native/cmake-build-debug rebuild_cache",
     "dist": "mkdir -p release && cp public/index.html release",
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",

@@ -4,6 +4,15 @@
 #include "ChordicalAudioProcessor.h"
 
 //==============================================================================
+class CommunicableWebBrowserComponent : public WebBrowserComponent
+{
+public:
+    bool pageAboutToLoad (const String & newURL) override
+    {
+        printf("\n page about to load! %s \n", newURL.toRawUTF8());
+        return true;
+    }
+};
 /**
 */
 class ChordicalAudioProcessorEditor  : public AudioProcessorEditor,
@@ -23,7 +32,7 @@ private:
     ChordicalAudioProcessor& processor;
     TextButton playButton;
     MidiKeyboardComponent midiKeyboard;
-    WebBrowserComponent webBrowserComponent;
+    CommunicableWebBrowserComponent webBrowserComponent;
     void updateCurrentTimeInfoFromHost();
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessorEditor)
 };
