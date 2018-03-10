@@ -1,0 +1,14 @@
+html, body, .container, #app {
+  background: #ece7e7;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin:0;
+  padding:0;
+  //cursor: none;
+}
+html:fullscreen {
+  //cursor:none;
+}
+
+

@@ -1,0 +1,16 @@
+%button-component{
+  background-color: black;
+  border-radius: 7px;
+  width: 100px;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.button-component{
+  @extend %button-component;
+}

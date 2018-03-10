@@ -65,7 +65,7 @@ function(create_resources dir output)
     endforeach()
 endfunction()
 
-create_resources ("${CMAKE_CURRENT_SOURCE_DIR}/UI" "${CMAKE_CURRENT_SOURCE_DIR}/Source/BinaryData/UI.c")
+create_resources ("${CMAKE_CURRENT_SOURCE_DIR}/UI/release" "${CMAKE_CURRENT_SOURCE_DIR}/Source/BinaryData/UI.c")
 
 add_library (SHARED_CODE STATIC
     "Source/ChordicalAudioProcessor.cpp"
