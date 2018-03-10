@@ -4,14 +4,24 @@
 #include "ChordicalAudioProcessor.h"
 
 //==============================================================================
+typedef void (* UIDataCallbackFunc)(std::string dataString);
 class CommunicableWebBrowserComponent : public WebBrowserComponent
 {
 public:
     bool pageAboutToLoad (const String & newURL) override
     {
         printf("\n page about to load! %s \n", newURL.toRawUTF8());
+        if (this->uiDataCallbackFunc != nil){
+            this->uiDataCallbackFunc("some data");
+        }
         return true;
     }
+    void registerUIDataCallbackFunc (UIDataCallbackFunc callbackFunc){
+        this->uiDataCallbackFunc = callbackFunc;
+    }
+
+private:
+    UIDataCallbackFunc uiDataCallbackFunc;
 };
 /**
 */

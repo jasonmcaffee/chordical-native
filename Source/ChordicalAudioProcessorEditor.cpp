@@ -23,7 +23,7 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     // editor's size to whatever you need it to be.
     printf("Starting editor.. ");
 //    printf("%s", index_html);
-    String fullPathToIndexHtml = writeTempFile(index_html, "./jasontestIndex.html");
+    String fullPathToIndexHtml = writeTempFile(index_html, "./Index.html");
     printf("fullPath: %s", fullPathToIndexHtml.toRawUTF8());
 
     setSize (700, 700);
@@ -35,12 +35,14 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     webBrowserComponent.setVisible(true);
     webBrowserComponent.setBounds(0, 200, 700, 500);
     addAndMakeVisible(webBrowserComponent);
+
+    webBrowserComponent.registerUIDataCallbackFunc([](std::string dataString){
+        printf("UIDataCallback called with: %s \n", dataString.c_str());
+    });
+
     webBrowserComponent.goToURL("file://" + fullPathToIndexHtml);
     repaint();
-
 }
-
-
 
 ChordicalAudioProcessorEditor::~ChordicalAudioProcessorEditor()
 {
