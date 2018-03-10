@@ -11,10 +11,18 @@ public:
     bool pageAboutToLoad (const String & newURL) override
     {
         printf("\n page about to load! %s \n", newURL.toRawUTF8());
-        if (this->uiDataCallbackFunc != nil){
-            this->uiDataCallbackFunc("some data");
+        std::string url = newURL.toStdString();
+        std::string::size_type nativeBridgeIndex = url.find( "native-bridge://data=", 0 );
+        if(nativeBridgeIndex == std::string::npos){
+            printf("initial page load \n");
+            return true;
         }
-        return true;
+        std::string encodedData = url.substr(nativeBridgeIndex + 21);
+
+        if (this->uiDataCallbackFunc != nil){
+            this->uiDataCallbackFunc(encodedData);
+        }
+        return false;
     }
     void registerUIDataCallbackFunc (UIDataCallbackFunc callbackFunc){
         this->uiDataCallbackFunc = callbackFunc;

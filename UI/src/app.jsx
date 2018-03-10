@@ -10,12 +10,16 @@ export default class App extends React.Component {
       <div id="bg">
         This is app.jx 2
         <Button label="HI" onClick={this.handleButtonClick.bind(this)}/>
+        <div id="output">output</div>
       </div>
     )
   }
   handleButtonClick(){
-    document.getElementById("bg").innerHTML = "BUTTON CLICKED" + window.location.href + " taco";
-    window.location.href += "?projucer://data=1&d2=2";
+    const data = { test: "message", is:{ this: 1 }, arr:['a', {b: 'baby'}, 33 ] };
+    const endcodedData = encodeURIComponent(JSON.stringify(data));
+    const url = `${window.location.origin}${window.location.pathname}?native-bridge://data=${endcodedData}`;
+    document.getElementById("output").innerHTML = "url is: " + url;
+    window.location.href = url;
   }
 }
 
