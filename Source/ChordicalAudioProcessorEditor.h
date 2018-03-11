@@ -4,8 +4,6 @@
 #include "ChordicalAudioProcessor.h"
 #include <string.h>
 //==============================================================================
-//typedef void (* UIDataCallbackFunc)[](juce::var dataJson);
-
 class CommunicableWebBrowserComponent : public WebBrowserComponent
 {
 public:
@@ -29,15 +27,12 @@ public:
         }
         return false;
     }
-//    void registerUIDataCallbackFunc (UIDataCallbackFunc callbackFunc){
-//        this->uiDataCallbackFunc = callbackFunc;
-//    }
+
     void registerUIDataCallbackFunc (std::function<void(juce::var)> callbackFunc){
         this->uiDataCallbackFunc = callbackFunc;
     }
 
 private:
-//    UIDataCallbackFunc uiDataCallbackFunc;
     std::function<void(juce::var)> uiDataCallbackFunc;
 };
 /**

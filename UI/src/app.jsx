@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
   }
   componentWillUnmount(){
-    window.removeEventListener("hashChange", this.handleHashChange);
+    window.removeEventListener("hashchange", this.handleHashChange);
   }
   handleHashChange(){
     document.getElementById("output").innerHTML = `hash is: ${location.hash}`;
@@ -30,7 +30,7 @@ export default class App extends React.Component {
     const data = {messageId, test: "message", is:{ this: 1 }, arr:['a', {b: 'baby'}, 33 ] };
     const endcodedData = encodeURIComponent(JSON.stringify(data));
     const url = `${window.location.origin}${window.location.pathname}?native-bridge://data=${endcodedData}`;
-    document.getElementById("output").innerHTML = "url is: " + url;
+    //document.getElementById("output").innerHTML = "url is: " + url;
     window.location.href = url;
   }
 }
