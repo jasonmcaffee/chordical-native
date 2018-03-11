@@ -37,9 +37,10 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     addAndMakeVisible(webBrowserComponent);
 
     webBrowserComponent.registerUIDataCallbackFunc([this](juce::var dataJson){
-        printf("UIDataCallback called with: %s \n", dataJson.toString().toRawUTF8());
-        std::string m = "message=hi";
-        webBrowserComponent.goToURL("javascript:location.hash=\"" + m + "\";");
+        std::string jsonString = JSON::toString(dataJson).toStdString();
+        printf("UIDataCallback called with: %s \n", jsonString.c_str());
+        std::string m = "JSON.stringify(" + jsonString + ")";
+        webBrowserComponent.goToURL("javascript:location.hash=" + m + ";");
     });
 
     webBrowserComponent.goToURL("file://" + fullPathToIndexHtml);

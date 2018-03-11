@@ -4,6 +4,7 @@ import {signal} from "core/core";
 import {eventConfig as ec} from 'core/eventConfig';
 import Button from 'reactComponents/Button';
 
+let messageId = 0;
 export default class App extends React.Component {
   render() {
     return (
@@ -25,7 +26,8 @@ export default class App extends React.Component {
     document.getElementById("output").innerHTML = `hash is: ${location.hash}`;
   }
   handleButtonClick(){
-    const data = { test: "message", is:{ this: 1 }, arr:['a', {b: 'baby'}, 33 ] };
+    ++messageId;
+    const data = {messageId, test: "message", is:{ this: 1 }, arr:['a', {b: 'baby'}, 33 ] };
     const endcodedData = encodeURIComponent(JSON.stringify(data));
     const url = `${window.location.origin}${window.location.pathname}?native-bridge://data=${endcodedData}`;
     document.getElementById("output").innerHTML = "url is: " + url;
