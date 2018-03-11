@@ -4,7 +4,7 @@
 #include "ChordicalAudioProcessor.h"
 #include <string.h>
 //==============================================================================
-typedef void (* UIDataCallbackFunc)(std::string dataString);
+typedef void (* UIDataCallbackFunc)(juce::var dataJson);
 class CommunicableWebBrowserComponent : public WebBrowserComponent
 {
 public:
@@ -17,14 +17,14 @@ public:
             printf("initial page load \n");
             return true;
         }
-
+        //get the params sent in the url. e.g. data=
         URL juceUrl(url);
         StringArray paramVals = juceUrl.getParameterValues();
         String dataString = paramVals[0];
+        //convert the encoded data string into a json object
         juce::var dataJson = JSON::parse(dataString);
-        printf("json test prop is: %s \n", dataJson["test"].toString().toRawUTF8());
         if (this->uiDataCallbackFunc != nil){
-            this->uiDataCallbackFunc(dataString.toStdString());
+            this->uiDataCallbackFunc(dataJson);
         }
         return false;
     }

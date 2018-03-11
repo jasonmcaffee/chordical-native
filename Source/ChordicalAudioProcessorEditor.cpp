@@ -36,8 +36,8 @@ ChordicalAudioProcessorEditor::ChordicalAudioProcessorEditor (ChordicalAudioProc
     webBrowserComponent.setBounds(0, 200, 700, 500);
     addAndMakeVisible(webBrowserComponent);
 
-    webBrowserComponent.registerUIDataCallbackFunc([](std::string dataString){
-        printf("UIDataCallback called with: %s \n", dataString.c_str());
+    webBrowserComponent.registerUIDataCallbackFunc([](juce::var dataJson){
+        printf("UIDataCallback called with: %s \n", dataJson.toString().toRawUTF8());
     });
 
     webBrowserComponent.goToURL("file://" + fullPathToIndexHtml);
