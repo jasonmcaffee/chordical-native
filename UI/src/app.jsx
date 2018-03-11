@@ -14,6 +14,16 @@ export default class App extends React.Component {
       </div>
     )
   }
+  componentWillMount(){
+    window.addEventListener("hashchange", this.handleHashChange, false);
+
+  }
+  componentWillUnmount(){
+    window.removeEventListener("hashChange", this.handleHashChange);
+  }
+  handleHashChange(){
+    document.getElementById("output").innerHTML = `hash is: ${location.hash}`;
+  }
   handleButtonClick(){
     const data = { test: "message", is:{ this: 1 }, arr:['a', {b: 'baby'}, 33 ] };
     const endcodedData = encodeURIComponent(JSON.stringify(data));
