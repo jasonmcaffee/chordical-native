@@ -2,7 +2,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "ChordicalAudioProcessor.h"
-
+#include <string.h>
 //==============================================================================
 typedef void (* UIDataCallbackFunc)(std::string dataString);
 class CommunicableWebBrowserComponent : public WebBrowserComponent
@@ -17,10 +17,14 @@ public:
             printf("initial page load \n");
             return true;
         }
-        std::string encodedData = url.substr(nativeBridgeIndex + 21);
 
+        URL juceUrl(url);
+        StringArray paramVals = juceUrl.getParameterValues();
+        String dataString = paramVals[0];
+        juce::var dataJson = JSON::parse(dataString);
+        printf("json test prop is: %s \n", dataJson["test"].toString().toRawUTF8());
         if (this->uiDataCallbackFunc != nil){
-            this->uiDataCallbackFunc(encodedData);
+            this->uiDataCallbackFunc(dataString.toStdString());
         }
         return false;
     }
