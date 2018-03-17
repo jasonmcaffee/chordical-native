@@ -2,7 +2,8 @@
 #include "ChordicalAudioProcessorEditor.h"
 #include <stdio.h>
 //#include "Waves/Sine.h"
-#include "Waves/SineWaveSynth.h"
+#include "SynthesizerVoice/SineWaveVoice.h"
+#include "SynthesizerSound/Sound.h"
 
 //==============================================================================
 ChordicalAudioProcessor::ChordicalAudioProcessor()
@@ -33,7 +34,7 @@ void ChordicalAudioProcessor::initialiseSynth()
         synth.addVoice (new SineWaveVoice());
 
     // ..and give the synth a sound to play
-    synth.addSound (new SineWaveSound());
+    synth.addSound (new Sound());
 }
 
 //==============================================================================
@@ -142,8 +143,6 @@ bool ChordicalAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts
 
 void ChordicalAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    //printf("processBlock called..\n");
-
     ScopedNoDenormals noDenormals;
     const int numSamples = buffer.getNumSamples();
 
@@ -159,26 +158,6 @@ void ChordicalAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuff
 
     // and now get our synth to process these midi events and generate its output.
     synth.renderNextBlock (buffer, midiMessages, 0, numSamples);
-
-    // Apply our delay effect to the new output..
-    //    applyDelay (buffer, delayBuffer);
-    //
-    //    applyGain (buffer, delayBuffer); // apply our gain-change to the outgoing data..
-
-    // Now ask the host for the current time so we can store it to be displayed later...
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    //    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    //    {
-    //        auto* channelData = buffer.getWritePointer (channel);
-    //
-    //        // ..do something to the data...
-    //    }
 }
 
 //==============================================================================
