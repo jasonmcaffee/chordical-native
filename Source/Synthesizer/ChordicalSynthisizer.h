@@ -23,6 +23,6 @@ public:
     }
 
     void noteOff (int midiChannel, int midiNoteNumber, float velocity, bool allowTailOff){
-      Synthesiser::noteOff(midiChannel midiNoteNumber, velocity, allowTailOff);
+      Synthesiser::noteOff(midiChannel, midiNoteNumber, velocity, allowTailOff);
     }
 };
