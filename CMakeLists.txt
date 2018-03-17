@@ -1379,7 +1379,7 @@ add_library (SHARED_CODE STATIC
     "./JuceLibraryCode/include_juce_opengl.mm"
     "./JuceLibraryCode/include_juce_video.mm"
     "./JuceLibraryCode/JuceHeader.h"
-        Source/Waves/Sine.cpp Source/Waves/Sine.h Source/SynthesizerVoice/SineWaveVoice.h Source/SynthesizerSound/Sound.h Source/Synthesizer/ChordicalSynthisizer.h)
+        Source/Waves/Sine.cpp Source/Waves/Sine.h Source/SynthesizerVoice/SineWaveVoice.h Source/SynthesizerSound/Sound.h Source/Synthesizer/ChordicalSynthisizer.h Source/Core/EventBus.h Source/Core/EventBus.cpp)
 
 set_source_files_properties ("Source/ChordicalAudioProcessor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("Source/ChordicalAudioProcessorEditor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
@@ -4657,7 +4657,7 @@ add_library (SHARED_CODE STATIC
     "./JuceLibraryCode/include_juce_opengl.cpp"
     "./JuceLibraryCode/include_juce_video.cpp"
     "./JuceLibraryCode/JuceHeader.h"
-        Source/Waves/Sine.cpp Source/Waves/Sine.h Source/SynthesizerVoice/SineWaveVoice.h Source/Synthesizer/ChordicalSynthisizer.h)
+        Source/Waves/Sine.cpp Source/Waves/Sine.h Source/SynthesizerVoice/SineWaveVoice.h Source/Synthesizer/ChordicalSynthisizer.h Source/Core/EventBus.h Source/Core/EventBus.cpp)
 
 set_source_files_properties ("Source/ChordicalAudioProcessor.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("Source/ChordicalAudioProcessorEditor.h" PROPERTIES HEADER_FILE_ONLY TRUE)

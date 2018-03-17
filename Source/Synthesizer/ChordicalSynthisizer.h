@@ -1,6 +1,8 @@
 #pragma once
 #include "../SynthesizerSound/Sound.h"
 #include "../SynthesizerVoice/SineWaveVoice.h"
+#include "../Core/EventBus.h"
+
 class ChordicalSynthesizer : public Synthesiser{
 public:
     ChordicalSynthesizer(){
@@ -19,6 +21,9 @@ public:
      */
     void noteOn (int midiChannel, int midiNoteNumber, float velocity){
       printf("ChordicalSynthesizer noteOn called \n");
+      int data = 1;
+      eventBus.trigger("asdf");
+//      eventBus::trigger(data);
       Synthesiser::noteOn(midiChannel, midiNoteNumber, velocity);
     }
 
