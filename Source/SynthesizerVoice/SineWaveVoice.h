@@ -69,7 +69,6 @@ public:
             const float currentSample = (float) (sin (currentAngle) * level * tailOff);
 
             for (int i = outputBuffer.getNumChannels(); --i >= 0;){
-              printf("renderNextBlock adding sample to outputBuffer \n");
               outputBuffer.addSample (i, startSample, currentSample);
             }
 
@@ -95,7 +94,6 @@ public:
             const float currentSample = (float) (sin (currentAngle) * level);
 
             for (int i = outputBuffer.getNumChannels(); --i >= 0;){
-              printf("renderNextBlock adding sample to outputBuffer no tailoff \n");
               outputBuffer.addSample (i, startSample, currentSample);
             }
 
