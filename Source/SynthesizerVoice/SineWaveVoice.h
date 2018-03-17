@@ -1,4 +1,5 @@
 #include "../SynthesizerSound/Sound.h"
+#pragma once
 class SineWaveVoice   : public SynthesiserVoice
 {
 public:

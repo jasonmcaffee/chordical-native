@@ -1,9 +1,6 @@
 #include "ChordicalAudioProcessor.h"
 #include "ChordicalAudioProcessorEditor.h"
 #include <stdio.h>
-//#include "Waves/Sine.h"
-#include "SynthesizerVoice/SineWaveVoice.h"
-#include "SynthesizerSound/Sound.h"
 
 //==============================================================================
 ChordicalAudioProcessor::ChordicalAudioProcessor()
@@ -19,22 +16,10 @@ ChordicalAudioProcessor::ChordicalAudioProcessor()
 #endif
 {
     printf("2 ChordicalAudioProcessor constructor called...\n");
-    initialiseSynth();
 }
 
 ChordicalAudioProcessor::~ChordicalAudioProcessor()
 {
-}
-
-void ChordicalAudioProcessor::initialiseSynth()
-{
-    const int numVoices = 8;
-    // Add some voices...
-    for (int i = numVoices; --i >= 0;)
-        synth.addVoice (new SineWaveVoice());
-
-    // ..and give the synth a sound to play
-    synth.addSound (new Sound());
 }
 
 //==============================================================================

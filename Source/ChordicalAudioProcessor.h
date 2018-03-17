@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "Synthesizer/ChordicalSynthisizer.h"
 
 
 //==============================================================================
@@ -50,11 +51,7 @@ public:
     // registers with it so it can represent the incoming messages
     MidiKeyboardState keyboardState;
 private:
-//    template <typename FloatType>
-//    void process (AudioBuffer<FloatType>& buffer, MidiBuffer& midiMessages, AudioBuffer<FloatType>& delayBuffer);
-
-    Synthesiser synth;
-    void initialiseSynth();
+    ChordicalSynthesizer synth;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChordicalAudioProcessor)
 };
