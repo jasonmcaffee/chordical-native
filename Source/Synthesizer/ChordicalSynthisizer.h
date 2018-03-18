@@ -12,8 +12,9 @@ public:
         this->addVoice (new SineWaveVoice());
       this->addSound(new Sound());
 
-      eventBus.registerCallback(eventBus.events.NotePressed, [this](EventData data){
-        printf("ChordicalSynthesizer notePressed event received %d \n", numVoices);
+      eventBus.registerCallback(eventBus.events.NotePressed, [this](EventData* data){
+        NotePressedEventData* d = dynamic_cast<NotePressedEventData*>(data);
+        printf("ChordicalSynthesizer notePressed event received %s \n", d->notePressed.c_str());
       });
     }
 
@@ -26,7 +27,7 @@ public:
     void noteOn (int midiChannel, int midiNoteNumber, float velocity){
       printf("ChordicalSynthesizer noteOn called \n");
       NotePressedEventData e = NotePressedEventData("c#");
-      eventBus.trigger(eventBus.events.NotePressed, e);
+      eventBus.trigger(eventBus.events.NotePressed, &e);
 //      eventBus::trigger(data);
       Synthesiser::noteOn(midiChannel, midiNoteNumber, velocity);
     }
