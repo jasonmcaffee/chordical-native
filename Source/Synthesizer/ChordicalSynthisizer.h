@@ -13,7 +13,7 @@ public:
       this->addSound(new Sound());
 
       eventBus.registerCallback(eventBus.events.NotePressed, [this](EventData data){
-        printf("ChordicalSynthesizer notePressed event received \n");
+        printf("ChordicalSynthesizer notePressed event received %d \n", numVoices);
       });
     }
 
@@ -25,7 +25,7 @@ public:
      */
     void noteOn (int midiChannel, int midiNoteNumber, float velocity){
       printf("ChordicalSynthesizer noteOn called \n");
-      EventData e;
+      NotePressedEventData e = NotePressedEventData("c#");
       eventBus.trigger(eventBus.events.NotePressed, e);
 //      eventBus::trigger(data);
       Synthesiser::noteOn(midiChannel, midiNoteNumber, velocity);

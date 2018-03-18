@@ -6,8 +6,13 @@
 //using EventCallback = std::function<void(TEventData)>;
 //typedef void (EventCallback)();
 
-class EventData{
-
+class EventData{};
+class NotePressedEventData : public EventData{
+public:
+    NotePressedEventData(std::string notePressed){
+      this->notePressed = notePressed;
+    }
+    std::string notePressed;
 };
 
 class Events {
