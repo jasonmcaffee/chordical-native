@@ -12,15 +12,15 @@ class EventData{
 };
 class NotePressedEventData : public EventData{
 public:
-    NotePressedEventData(std::string notePressed){
+    NotePressedEventData(string notePressed){
       this->notePressed = notePressed;
     }
-    std::string notePressed;
+    string notePressed;
 };
 
 class Events {
 public:
-    const std::string NotePressed = "NotePressed";
+    const string NotePressed = "NotePressed";
 };
 
 
