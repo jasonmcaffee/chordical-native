@@ -11,6 +11,10 @@ public:
       for (int i = numVoices; --i >= 0;)
         this->addVoice (new SineWaveVoice());
       this->addSound(new Sound());
+
+      eventBus.registerCallback(eventBus.events.NotePressed, [this](EventData data){
+        printf("ChordicalSynthesizer notePressed event received \n");
+      });
     }
 
     /**
@@ -21,8 +25,8 @@ public:
      */
     void noteOn (int midiChannel, int midiNoteNumber, float velocity){
       printf("ChordicalSynthesizer noteOn called \n");
-      int data = 1;
-      eventBus.trigger("asdf");
+      EventData e;
+      eventBus.trigger(eventBus.events.NotePressed, e);
 //      eventBus::trigger(data);
       Synthesiser::noteOn(midiChannel, midiNoteNumber, velocity);
     }
