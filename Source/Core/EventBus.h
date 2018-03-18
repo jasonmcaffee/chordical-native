@@ -2,9 +2,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-//template<typename TEventData>
-//using EventCallback = std::function<void(TEventData)>;
-//typedef void (EventCallback)();
+using std::unordered_map;
+using std::string;
+using std::vector;
+using std::function;
 
 class EventData{
     virtual void nothing(){}
@@ -28,25 +29,19 @@ public:
     EventBus(){}
     Events events;
 
-//    template<typename TEventData>
-//    std::unordered_map<std::string, std::vector<std::function<void(TEventData)>> > eventNameToCallbacksMap;
-//    template<typename TEventData>
-//    std::unordered_map< std::string, std::vector<EventCallback<void*>> > eventNameToCallbacksMap;
-    std::unordered_map< std::string, std::vector<std::function<void(EventData*)>> > eventNameToCallbacksMap;
-//    template<typename TEventData>
-    void trigger(std::string eventName, EventData* data){
+    unordered_map<string, vector<function<void(EventData*)>> > eventNameToCallbacksMap;
+
+    void trigger(string eventName, EventData* data){
       printf("eventBus trigger called \n");
-      std::vector<std::function<void(EventData*)>> callbacks = this->eventNameToCallbacksMap[eventName];
+      vector<function<void(EventData*)>> callbacks = this->eventNameToCallbacksMap[eventName];
       for(auto const& cb: callbacks) {
         cb(data);
       }
     }
 
-    void registerCallback(std::string eventName, std::function<void(EventData*)> callback){
+    void registerCallback(string eventName, function<void(EventData*)> callback){
       this->eventNameToCallbacksMap[eventName].push_back(callback);
     }
-private:
-
 };
 
 //global instance
